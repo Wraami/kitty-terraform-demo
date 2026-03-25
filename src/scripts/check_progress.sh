@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- update these to match your code if you're feeling extra creative! ---
-ENDPOINT="http://localhost:4566"
+ENDPOINT="http://localhost.localstack.cloud:4566"
 REGION="eu-west-1"
 BUCKET="treat-bucket"
 TABLE="Treat-Inventory"
