@@ -39,6 +39,7 @@ terraform.rc
 # LocalStack data directory
 .localstack/
 data/recordings/
+/src/volume/
 
 # If you use localstack-cli or logs are redirected to files
 localstack_main.log
@@ -59,6 +60,7 @@ localstack_infra.log
 
 # IDE specific
 .vscode/
+.vs/
 .idea/
 *.launch
 .history/
