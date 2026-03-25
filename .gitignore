@@ -35,3 +35,30 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# LocalStack data directory
+.localstack/
+data/recordings/
+
+# If you use localstack-cli or logs are redirected to files
+localstack_main.log
+localstack_infra.log
+
+.terraform.lock.hcl
+
+# Local environment variables
+.env
+.env.local
+.envrc
+
+# AWS CLI local config/credentials if stored in-project
+.aws/
+
+# Ignore all plan files
+*.tfplan
+
+# IDE specific
+.vscode/
+.idea/
+*.launch
+.history/
