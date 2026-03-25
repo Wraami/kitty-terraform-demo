@@ -48,14 +48,15 @@ This will help you track your progress throughout!
 
 ## 📜 The Cheat Sheet
 
-Info to be added if needed.
+Make sure all of the localstack resources are running on port 4566, and that your terraform provider is configured to point to this port as well!
 
 ## 📄 Relevant Documentation
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+- https://registry.terraform.io/providers/hashicorp/aws/3.29.1/docs/resources/s3_bucket_policy (you don't need the condition here)
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy
-- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy
 
 (The following site will help you find all of the IAM policies you need, just copy and paste the actions!)
 
