@@ -6,8 +6,6 @@ services:
     image: localstack/localstack:3.8.1
     ports:
       - "127.0.0.1:4566:4566"
-      - "127.0.0.1:4510-4559:4510-4559"
-      - "4566-4583:4566-4583"
     environment:
       - DEBUG=1
       - DOCKER_HOST=unix:///var/run/docker.sock
