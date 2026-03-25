@@ -34,12 +34,13 @@ choco install terraform --pre
 If on a linux distro, consult the terraform installation docs, theres some more faff here with GPG keys:
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
-3. Open a separate terminal, and navigate to src, then run the below (This will install localstack so you can get started with the demo!)
+3. Also the same thing with the aws cli, make sure you have this so scripts can work: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+4. Open a separate terminal, and navigate to src, then run the below (This will install localstack so you can get started with the demo!)
 ```
 docker-compose up -d
 ```
-4. Open another terminal switched to git bash, then navigate to src/scripts
-5. Run the checker script:
+5. Open another terminal switched to git bash, then navigate to src/scripts
+6. Run the checker script:
 ```
 bash check_progress.sh
 ```
