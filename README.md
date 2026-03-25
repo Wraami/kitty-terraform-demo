@@ -71,6 +71,8 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_
 "Error: Conflicting configuration" → meimei probably left a duplicate resource name in the file, or potentially made a silly syntax issue, consult your documentation a
 
 "Error: 403 Forbidden" → You’re probably trying to talk to the real AWS. Check your provider.tf and make sure it points to http://localhost:4566, you want this as the same port as localstack.
+
+"my resources are named weirdly" → Meimei was a bit of a joker, check the check_progress.sh script to see the exact names of the resources you need to create, and make sure they match!
     
 "I want to start over!" → delete terraform.tfstate and terraform init in the terraform directory.
 ```
