@@ -7,7 +7,7 @@ As you may already know, Meimei vibecoded the infra with ClickOps (manual clicki
 As Jinx, You have five main checklist tasks that you need to perform in your group (or on your own if no even groups) to ensure big boss doesn't fire you.
 
 1. Fix the general syntax issues with the terraform provider boilerplate
-2. Fix a pesky S3 configuration issue. 
+2. Fix a pesky S3 access issue. 
 3. Add a bucket policy to your new S3 that's secure and doesn't allow public access!
 
 4. Create a DynamoDB Table ("the treat inventory") with the bosses required attributes (see the file for more detail).
@@ -19,10 +19,6 @@ As Jinx, You have five main checklist tasks that you need to perform in your gro
 
 Have a look at the check_progress.sh script if you're confused about namings of resources.
 
-Once done with each checklist task, uncomment the next file and proceed, this allows for the terraform init > terraform plan > terrform apply flow to work fine.
-
-## ⚠️ Honor Code: Please don't use Amazon Q / AI Tools or copy from any other repo for this! StackOverflow and reading through the below terraform docs are allowed, but the big boss wants your work, not amazons!
-
 ## 🐾 Start Here (5 mins)
 
 1. Open the project in visual studio code or Rider
@@ -32,7 +28,7 @@ Once done with each checklist task, uncomment the next file and proceed, this al
 choco install terraform --pre 
 ```
 
-3. run the following in a cli (or do it via aws configure):
+3. run the following in a bash cli (or do it via aws configure) THIS IS MANDATORY, if you don't do this, the boss will be fuming.:
 export AWS_ACCESS_KEY_ID="test"
 export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="eu-west-1"
@@ -43,21 +39,40 @@ If on a linux distro, consult the terraform installation docs, theres some more 
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
 4. Also the same thing with the aws cli, make sure you have this so scripts can work: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-5. Open a separate terminal, and navigate to src, then run the below (This will install localstack so you can get started with the demo!)
+
+5. If you have docker desktop, make sure it's running, if not, install it here: https://www.docker.com/products/docker-desktop/
+
+6. Open a separate terminal, and navigate to src, then run the below (This will install localstack so you can get started with the demo!)
 ```
 docker-compose up -d
 ```
-6. Open another terminal switched to git bash, then navigate to src/scripts
-7. Run the checker script:
+7. Open another terminal switched to git bash, then navigate to src/scripts
+
+8. Throughout this demo, you can run the checker script:
 ```
 bash check_progress.sh
 ```
 
-This will help you track your progress throughout!
+This will help you track your progress!
 
-## 📜 The Cheat Sheet
+Once you're ready to write some code, consult the Documentation section below!
 
-Make sure all of the localstack resources are running on port 4566, and that your terraform provider is configured to point to this port as well!
+
+
+## 📜 Terraform Tips
+If you're confident with your code, navigate to the terraform directory and run the below to see if your code is working as expected:
+```
+terraform init
+terraform plan (scan the contents of this!)
+terraform apply
+```
+
+you can also check your syntax
+```
+terraform validate
+```
+
+Once you've done everything right for a task, consult your checklist, and move on to the next one by uncommenting the next file in the terraform directory, then try the above flow again!
 
 ## 📄 Relevant Documentation
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs
@@ -73,16 +88,21 @@ Make sure all of the localstack resources are running on port 4566, and that you
 
 ### And for the brave of you:
 
-https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic
 
 ### 🆘 "I’m Stuck!" (Troubleshooting)
 ```
+"My resources are named weirdly" → Meimei was a bit of a joker, check the check_progress.sh script to see the exact names of the resources you need to create, and make sure they match!
+
 "Error: Conflicting configuration" → meimei probably left a duplicate resource name in the file, or potentially made a silly syntax issue, consult your documentation a
 
 "Error: 403 Forbidden" → You’re probably trying to talk to the real AWS. Check your provider.tf and make sure it points to http://localhost:4566, you want this as the same port as localstack.
-
-"my resources are named weirdly" → Meimei was a bit of a joker, check the check_progress.sh script to see the exact names of the resources you need to create, and make sure they match!
     
 "I want to start over!" → delete terraform.tfstate, delete the docker image in docker desktop and terraform init again in the terraform directory.
+
+Make sure all of the localstack resources are running on port 4566, and that your terraform provider is configured to point to this port as well!
+
 ```
+
+## ⚠️ Honour Code: Please don't use Amazon Q / AI Tools or copy from any other repo for this! StackOverflow and reading through the below terraform docs are allowed, but the big boss wants your work, not amazons!
