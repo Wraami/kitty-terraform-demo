@@ -27,14 +27,17 @@ Once done with each checklist task, uncomment the next file and proceed, this al
 
 1. Open the project in visual studio code or Rider
 2. Make sure you have terraform installed, if not, run the below (assuming you have choco installed)
+
+```
+choco install terraform --pre 
+```
+
 3. run the following in a cli (or do it via aws configure):
 export AWS_ACCESS_KEY_ID="test"
 export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="eu-west-1"
 export AWS_ENDPOINT_URL=http://localhost:4566
-```
-choco install terraform --pre 
-```
+
 
 If on a linux distro, consult the terraform installation docs, theres some more faff here with GPG keys:
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
