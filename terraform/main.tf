@@ -9,8 +9,7 @@ module "dynamo" {
 }
 
 module "iam" {
-  source = "../../modules/iam"
-  # pass variables as needed
+  source = "../modules/iam"
 }
 
 module "messaging" {

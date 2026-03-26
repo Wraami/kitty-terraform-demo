@@ -4,6 +4,7 @@ provider "aws {
 
 terraform {
   required_providers { 
++  version = "~> 5.0"
 
 
  # what could be here?

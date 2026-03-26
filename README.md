@@ -19,7 +19,7 @@ As Jinx, You have five main checklist tasks that you need to perform in your gro
 
 Have a look at the check_progress.sh script if you're confused about namings of resources.
 
-(Hint: If you've extra time, cat treats will be given if you can configure the solution in a reuseable way across beta and live, think about using variables in the modules!)
+Once done with each checklist task, uncomment the next file and proceed, this allows for the terraform init > terraform plan > terrform apply flow to work fine.
 
 ## ⚠️ Honor Code: Please don't use Amazon Q / AI Tools or copy from any other repo for this! StackOverflow and reading through the below terraform docs are allowed, but the big boss wants your work, not amazons!
 
