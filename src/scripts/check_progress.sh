@@ -3,7 +3,7 @@
 # --- update these to match your code if you're feeling extra creative! ---
 ENDPOINT="http://localhost.localstack.cloud:4566"
 REGION="eu-west-1"
-BUCKET="treat-bucket"
+BUCKET="treat-store"
 TABLE="treat-inventory"
 ROLE="treat-dispenser-role"
 TOPIC="scratcher-topic"

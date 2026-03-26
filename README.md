@@ -6,7 +6,7 @@ As you may already know, Meimei vibecoded the infra with ClickOps (manual clicki
 
 As Jinx, You have five main checklist tasks that you need to perform in your group (or on your own if no even groups) to ensure big boss doesn't fire you.
 
-1. Fix the general syntax issues with the terraform boilerplate
+1. Fix the general syntax issues with the terraform provider boilerplate
 2. Fix a pesky S3 configuration issue. 
 3. Add a bucket policy to your new S3 that's secure and doesn't allow public access!
 
