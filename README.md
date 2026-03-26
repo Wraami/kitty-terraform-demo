@@ -84,5 +84,5 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_
 
 "my resources are named weirdly" → Meimei was a bit of a joker, check the check_progress.sh script to see the exact names of the resources you need to create, and make sure they match!
     
-"I want to start over!" → delete terraform.tfstate and terraform init in the terraform directory.
+"I want to start over!" → delete terraform.tfstate, delete the docker image in docker desktop and terraform init again in the terraform directory.
 ```
