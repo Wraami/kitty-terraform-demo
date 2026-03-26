@@ -24,6 +24,14 @@ else
     echo -e "❌ [1] Foundation: LocalStack is DOWN. Is Docker running?"
 fi
 
+# 1.1 Check if the terraform provider is configured properly
+if terraform -chdir=../../terraform providers 2>/dev/null | grep -q "hashicorp/aws.*~> 5.0"; then
+    echo -e "✅ [1.1] Foundation: Terraform AWS provider has been configured 😸."
+    ((SUCCESS_COUNT++))
+else
+    echo -e "❌ [1.1] Foundation: Terraform AWS provider not found. Check your terraform configuration and try again!!"
+fi
+
 # 2. S3 Bucket (Checking for Public Access Block)
 if aws --endpoint-url=$ENDPOINT s3api get_public_access_block --bucket "$BUCKET" 2>/dev/null | grep -q "true"; then
     echo -e "✅ [2] S3 Security: the config issue is fixed! congrats!."

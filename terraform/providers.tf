@@ -3,7 +3,7 @@
 provider "aws {
 
 terraform {
-  required_providers { 
+  requred_providers { 
 +  version = "~> 5.0"
 
 
