@@ -19,7 +19,7 @@ terraform {
   s3_use_path_style           = true
 
 endpoints {
-+   s3         = "http://s3.localhost.localstack.cloud:4566" 
++   s3         = "http://localhost:4566" 
     dynamodb   = "http://localhost:4566"
     iam        = "http://localhost:4566"
     ecs        = "http://localhost:4566"
