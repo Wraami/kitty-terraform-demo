@@ -28,11 +28,14 @@ Have a look at the check_progress.sh script if you're confused about namings of 
 choco install terraform --pre 
 ```
 
-3. run the following in a bash cli (or do it via aws configure) THIS IS MANDATORY, if you don't do this, the boss will be fuming.:
+3. run the following in git bash (or do it via aws configure) THIS IS MANDATORY, if you don't do this, the boss will be fuming.:
+
+```
 export AWS_ACCESS_KEY_ID="test"
 export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="eu-west-1"
 export AWS_ENDPOINT_URL=http://localhost:4566
+```
 
 
 If on a linux distro, consult the terraform installation docs, theres some more faff here with GPG keys:
@@ -95,7 +98,7 @@ Once you've done everything right for a task, consult your checklist, and move o
 ```
 "My resources are named weirdly" → Meimei was a bit of a joker, check the check_progress.sh script to see the exact names of the resources you need to create, and make sure they match!
 
-"Error: Conflicting configuration" → meimei probably left a duplicate resource name in the file, or potentially made a silly syntax issue, consult your documentation a
+"Error: Conflicting configuration" → meimei probably left a duplicate resource name in the file, or potentially made a silly syntax issue, consult your documentation above.
 
 "Error: 403 Forbidden" → You’re probably trying to talk to the real AWS. Check your provider.tf and make sure it points to http://localhost:4566, you want this as the same port as localstack.
     
