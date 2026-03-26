@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- update these to match your code if you're feeling extra creative! ---
-ENDPOINT="http://localhost.localstack.cloud:4566"
+ENDPOINT="http://localhost:4566"
 REGION="eu-west-1"
 BUCKET="treat-store"
 TABLE="treat-inventory"
@@ -44,18 +44,18 @@ fi
 
 # 4. DynamoDB
 if aws --endpoint-url=$ENDPOINT dynamodb describe-table --table-name "$TABLE" 2>/dev/null | grep -q "ACTIVE"; then
-    echo -e "✅ [3] Database: DynamoDB table is online and active."
+    echo -e "✅ [4] Database: DynamoDB table is online and active."
     ((SUCCESS_COUNT++))
 else
-    echo -e "⭕ [3] Database: DynamoDB missing."
+    echo -e "⭕ [4] Database: DynamoDB missing."
 fi
 
 # 5. IAM Role & Policy
 if aws --endpoint-url=$ENDPOINT iam get-role --role-name "$ROLE" 2>/dev/null; then
-    echo -e "✅ [4] Identity: IAM Role established."
+    echo -e "✅ [5] Identity: IAM Role established."
     ((SUCCESS_COUNT++))
 else
-    echo -e "⭕ [4] Identity: Role missing."
+    echo -e "⭕ [5] Identity: Role missing."
 fi
 
 # 6. SNS Topic
