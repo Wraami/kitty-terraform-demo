@@ -27,7 +27,7 @@ Have a look at the check_progress.sh script if you're confused about namings of 
 
 1. Open the project in visual studio code or Rider
 2. Make sure you have terraform installed, if not, run the below (assuming you have choco installed)
-3. run the following in a cli:
+3. run the following in a cli (or do it via aws configure):
 export AWS_ACCESS_KEY_ID="test"
 export AWS_SECRET_ACCESS_KEY="test"
 export AWS_DEFAULT_REGION="eu-west-1"
