@@ -36,10 +36,10 @@ fi
 
 # 3. S3 Bucket Policy
 if aws --endpoint-url=$ENDPOINT s3api get-bucket-policy --bucket "$BUCKET" 2>/dev/null; then
-    echo -e "✅ [5] Policy: Bucket Policy attached."
+    echo -e "✅ [3] Policy: Bucket Policy attached."
     ((SUCCESS_COUNT++))
 else
-    echo -e "⭕ [5] Policy: Bucket Policy missing."
+    echo -e "⭕ [3] Policy: Bucket Policy missing."
 fi
 
 # 4. DynamoDB
