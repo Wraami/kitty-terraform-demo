@@ -1,4 +1,5 @@
 #Hint: boss would love if you put some of these things in variables at the root level, but for now, fix meimeis mess!
+#Only use version 5.0 for the aws provider please!
 provider "aws {
 
 terraform {

@@ -34,15 +34,23 @@ else
     echo -e "⭕ [2] S3 Bucket: Not found yet."
 fi
 
-# 3. DynamoDB
+# 3. S3 Bucket Policy
+if aws --endpoint-url=$ENDPOINT s3api get-bucket-policy --bucket "$BUCKET" 2>/dev/null; then
+    echo -e "✅ [5] Policy: Bucket Policy attached."
+    ((SUCCESS_COUNT++))
+else
+    echo -e "⭕ [5] Policy: Bucket Policy missing."
+fi
+
+# 4. DynamoDB
 if aws --endpoint-url=$ENDPOINT dynamodb describe-table --table-name "$TABLE" 2>/dev/null | grep -q "ACTIVE"; then
-    echo -e "✅ [3] Database: DynamoDB table is online."
+    echo -e "✅ [3] Database: DynamoDB table is online and active."
     ((SUCCESS_COUNT++))
 else
     echo -e "⭕ [3] Database: DynamoDB missing."
 fi
 
-# 4. IAM Role & Policy
+# 5. IAM Role & Policy
 if aws --endpoint-url=$ENDPOINT iam get-role --role-name "$ROLE" 2>/dev/null; then
     echo -e "✅ [4] Identity: IAM Role established."
     ((SUCCESS_COUNT++))
@@ -50,13 +58,6 @@ else
     echo -e "⭕ [4] Identity: Role missing."
 fi
 
-# 5. S3 Bucket Policy
-if aws --endpoint-url=$ENDPOINT s3api get-bucket-policy --bucket "$BUCKET" 2>/dev/null; then
-    echo -e "✅ [5] Policy: Bucket Policy attached."
-    ((SUCCESS_COUNT++))
-else
-    echo -e "⭕ [5] Policy: Bucket Policy missing."
-fi
 
 # 6. SNS Topic
 if aws --endpoint-url=$ENDPOINT sns list-topics 2>/dev/null | grep -q "$TOPIC"; then
