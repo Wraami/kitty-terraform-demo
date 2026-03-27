@@ -32,7 +32,7 @@ else
 fi
 
 # 2. S3 Bucket (Checking for Public Access Block)
-if aws --endpoint-url=$ENDPOINT s3api get_public_access_block --bucket "$BUCKET" 2>/dev/null | grep -q "true"; then
+if aws --endpoint-url=$ENDPOINT s3api get-public-access-block --bucket "$BUCKET" 2>/dev/null | grep -q "true"; then
     echo -e "✅ [2] S3 Security: the config issue is fixed! congrats!."
     ((SUCCESS_COUNT++))
 elif aws --endpoint-url=$ENDPOINT s3api head-bucket --bucket "$BUCKET" 2>/dev/null; then
